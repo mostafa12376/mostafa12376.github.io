@@ -1,0 +1,15 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.card {
+    border: 1px solid #ccc;
+}
+
+.btn-warning, .btn-danger {
+    margin-top: 5px;
+}

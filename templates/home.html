@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h2 class="text-center">My Notes</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a href="{{ url_for('add_note') }}" class="btn btn-primary mb-2">Add Note</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            {% for note in notes %}
+                                <div class="col-md-4">
+                                    <div class="card mb-4">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ note.title }}</h5>
+                                            <p class="card-text mb-3">{{ note.content }}</p>
+                                            <div class="text-center">
+                                                <a href="{{ url_for('update_note', id=note.id) }}" class="btn btn-warning btn-sm mr-2">Edit</a>
+                                                <a href="{{ url_for('delete_note', id=note.id) }}" class="btn btn-danger btn-sm">Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ url_for('logout') }}" class="btn btn-secondary">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
